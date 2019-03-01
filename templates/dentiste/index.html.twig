@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <p>Liste des dentistes disponible</p>
-    {% for dentiste in dentistes %}
-        <p><a href="{{path('dentisteDetail', {id: dentiste.id})}}">{{dentiste.titre}} {{dentiste.prenom}} {{dentiste.nom}}<a></p>
-    {% endfor %}
+
+    <p>Cliquez sur le marquer de la carte pour afficer les coordonnées du dentiste et accéder à sa page professionnelle</p>
     <div id="mapid"></div>
 {% endblock %}
 {% block javascripts %}
@@ -24,7 +22,7 @@ crossorigin=""></script>
 
      {% for dentiste in dentistes %}
         var marker = L.marker({{ dentiste.coordonnee|json_encode|raw }})
-        .bindPopup("{{dentiste.titre}} {{dentiste.prenom}} {{dentiste.nom}} <br> {{dentiste.adresse}} {{dentiste.CP}} {{dentiste.ville}}")
+        .bindPopup("<a href='{{path('dentisteDetail', {id: dentiste.id})}}'>{{dentiste.titre}} {{dentiste.prenom}} {{dentiste.nom}}<a> <br> {{dentiste.adresse}} {{dentiste.CP}} {{dentiste.ville}}")
         .addTo(mymap);
     {% endfor %}
     {# "<strong>" +{{dentiste.titre}} + {{dentiste.nom}} +"</strong> <br>" + {{dentiste.adresse}} + {{dentiste.CP}} + {{dentiste.ville}} #}
