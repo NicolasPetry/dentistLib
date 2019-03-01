@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h2>Vos coordonnées</h2>
+        <ol>
+            <li>Nom: {{ app.user.nom }}</li>
+            <li>Prenom: {{ app.user.prenom }}</li>
+            <li>Email : {{ app.user.email }}</li>
+
+        </ol>
+        <ol>
+            <li><a href="{{ path('modifier_info', {id: app.user.id}) }}">Modifiez vos informations</a></li>
+            <li><a href="{{ path('modifier_mdp', {id: app.user.id}) }}">Modifiez votre mot de passe</a></li>
+        </ol>
+        
+    <h2>Liste de vos rendez-vous</h2>
+    <ul>
+    {% for consultation in app.user.consultation %}
+        <li>Le {{consultation.creneau | date ("d/m/y \à G:i")}} avec le Docteur {{consultation.dentiste.nom}} 
+            <a href="{{path('deplacer', {id: consultation.id})}}"><i id="blue" class="fas fa-table tooltipbox"><span class="tooltiptext">Déplacer le rendez-vous</span></i> 
+            <a href="{{path('annuler', {id: consultation.id})}}"><i id="red" class="fas fa-ban tooltipbox"><span class="tooltiptext">Annuler le rendez-vous</span></i></a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

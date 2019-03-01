@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h4>Créneaux disponibles</h4>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <p>Bonjour {{app.user.prenom}} {{app.user.nom}}</p>
+        {% endif %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>dentiste</th>
+                <th>date</th>
+                <th>réserver</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for consultation in consultations %}
+                <tr>
+                    <td>{{consultation.dentiste.titre}} {{consultation.dentiste.prenom}} {{consultation.dentiste.nom}}</p>
+                    <td>{{consultation.creneau|date ("d/m/Y G:i")}}</td>
+                    <td><a href="{{path('reserver', {id: consultation.id})}}"><i class="fas fa-angle-double-right"></i></a></td>
+                </tr>
+            {% endfor %}    
+        </tbody>
+    </table>
+  
+{% endblock %}

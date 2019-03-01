@@ -1,0 +1,70 @@
+/*base*/
+body{background: #ebeff2;}
+.bck1{background: #fff;}
+
+/*generique*/
+.padded{padding: 15px;}
+
+ol{
+    list-style:none;
+}
+
+::selection {
+    color: #FFF;
+    background: #5cb85c;
+    }
+
+/*header*/
+header#header {margin-bottom: 20px;padding: 10px;}
+header#header h1 {text-align: center;color: #5cb85c;}
+
+/*homepage*/
+
+#dimage{
+    height: 400px;
+    background-image:  url("../image/dentiste.jpg");
+}
+
+/*bouton*/
+
+#red{
+    color: #C55959;
+}
+
+#blue{
+    color: #5D94CF;
+}
+
+/*tooltip*/
+
+.tooltipbox{
+    position:relative;
+}
+
+.tooltipbox .tooltiptext{
+    visibility: hidden;
+    width: 120px;
+    top: 100%;
+    left: 50%; 
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    background-color: #5CB85C;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltipbox:hover .tooltiptext{
+    visibility: visible;
+    
+}
+
+/*leaflet*/
+#mapid{
+    height: 380px;
+}
+
+/*footer*/
+footer#footer{margin-top: 20px;padding: 10px;}

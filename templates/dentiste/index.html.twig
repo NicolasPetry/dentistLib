@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <p>Liste des dentistes disponible</p>
+    {% for dentiste in dentistes %}
+        <p><a href="{{path('dentisteDetail', {id: dentiste.id})}}">{{dentiste.titre}} {{dentiste.prenom}} {{dentiste.nom}}<a></p>
+    {% endfor %}
+{% endblock %}

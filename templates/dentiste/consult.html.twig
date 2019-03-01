@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {# {% set date1 = '2019/02/22' %}
+    {% set date2 = '2019/02/24' %} #}
+    <p>Disponibilité du {{dentiste.titre}} {{dentiste.prenom}} {{dentiste.nom}}</p> <a href="{{path('dentistes')}}"><i class="fas fa-long-arrow-alt-left"></i></a>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>date</th>
+                <th>réserver</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for consultation in dentiste.consultation|sort %}
+                <tr>
+                    <td>{{consultation.creneau|date ("d/m/Y G:i")}}</td>
+                    <td><i class="fas fa-angle-double-right"></i></td>
+                </tr>
+            {% endfor %}    
+        </tbody>
+    </table>
+    {# <table class="table">
+        <thead>
+            <tr>
+                <th>{{date1| date('d/m/Y')}}</th>
+                <th>{{date2| date('d/m/Y')}}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for consultation in dentiste.consultation|sort %}
+            <tr>
+                {% if ( date1| date('d/m/Y') == consultation.creneau| date('d/m/Y')) %}
+                    <td><a href="">{{consultation.creneau| date('G:i')}}<a></td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+                {% if ( date2| date('d/m/Y') == consultation.creneau| date('d/m/Y')) %}
+                    <td><a href="">{{consultation.creneau| date('G:i')}}<a></td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> #}
+
+{% endblock %}
