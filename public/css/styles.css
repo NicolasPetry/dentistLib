@@ -23,8 +23,13 @@ header#header h1 {text-align: center;color: #5cb85c;}
 #dimage{
     height: 400px;
     background-image:  url("../image/dentiste.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
+#welcome{
+    text-align: center;
+}
 /*bouton*/
 
 #red{
