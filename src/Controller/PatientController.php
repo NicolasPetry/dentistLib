@@ -29,7 +29,7 @@ class PatientController extends Controller {
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($patient, $patient->getPlainPassword());
+            $password = $passwordEncoder->encodePassword($patient, $patient->getPassword());
             $patient->setPassword($password);
             //on active par défaut
             $patient->setIsActive(true);
@@ -81,7 +81,7 @@ class PatientController extends Controller {
 
         $form = $this->get('form.factory')
                 ->createNamedBuilder(null)
-                ->add('plainPassword', RepeatedType::class, array(
+                ->add('password', RepeatedType::class, array(
                     'type' => Passwordtype::class,
                     'first_options' => array('label' => 'Mot de passe'),
                     'second_options' => array('label' => 'Confirmation du mot de passe'), 
@@ -93,7 +93,7 @@ class PatientController extends Controller {
         if ($form->isSubmitted() && $form->isValid()){
 
             $data = $form->getData();
-            $password = $passwordEncoder->encodePassword($patient, $data['plainPassword']);
+            $password = $passwordEncoder->encodePassword($patient, $data['password']);
             $patient->setPassword($password);
 
             $entityManager = $this->getDoctrine()->getManager();

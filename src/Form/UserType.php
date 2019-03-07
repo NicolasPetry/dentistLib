@@ -22,7 +22,7 @@ class UserType extends AbstractType {
                 'first_options' => array('label' => 'Email'),
                 'second_options' => array('label' => 'Confirmation de votre email'),
             ))
-            ->add('plainPassword', RepeatedType::class, array(
+            ->add('password', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'first_options' => array('label' => 'Mot de passe'),
                 'second_options' => array('label' => 'Confirmation du mot de passe'),
