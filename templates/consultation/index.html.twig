@@ -16,7 +16,7 @@
         <tbody>
             {% for consultation in consultations %}
                 <tr>
-                    <td>{{consultation.dentiste.titre}} {{consultation.dentiste.prenom}} {{consultation.dentiste.nom}}</p>
+                    <td>Docteur {{consultation.dentiste.prenom}} {{consultation.dentiste.nom}}</p>
                     <td>{{consultation.creneau|date ("d/m/Y G:i")}}</td>
                     <td><a href="{{path('reserver', {id: consultation.id})}}"><i class="fas fa-angle-double-right"></i></a></td>
                 </tr>
