@@ -21,7 +21,7 @@ crossorigin=""></script>
 
     var marker = L.marker({{ dentiste.coordonnee|json_encode|raw }}).addTo(mymap);
 
-    marker.bindPopup("Dr. {{dentiste.prenom}} {{dentiste.nom}} <br> {{dentiste.adresse}} {{dentiste.CP}} {{dentiste.ville}}").openPopup();
+    marker.bindPopup("Dr. {{dentiste.prenom}} {{dentiste.nom}} <br> {{dentiste.adresse}} {{dentiste.CP}} {{dentiste.ville}} <br> {{dentiste.email}}").openPopup();
 
     var popup2 = L.popup();
 

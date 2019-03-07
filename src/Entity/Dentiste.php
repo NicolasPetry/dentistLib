@@ -31,11 +31,7 @@ class Dentiste
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $titre;
 
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
     private $email;
 
     /**
@@ -108,18 +104,6 @@ class Dentiste
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getTitre(): ?string
-    {
-        return $this->titre[0].substr($this->titre, -1);
-    }
-
-    public function setTitre(string $titre): self
-    {
-        $this->titre = $titre;
 
         return $this;
     }
