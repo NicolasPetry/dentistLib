@@ -41,12 +41,6 @@ class Patient implements UserInterface, \Serializable
     private $email;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=250)
-     */
-    private $plainPassword;
-
-    /**
      * The below length depends on the "algorithm" you use for encoding
      * the password, but this works well with bcrypt.
      * @ORM\Column(type="string", length=80)
@@ -183,19 +177,6 @@ class Patient implements UserInterface, \Serializable
 
     function setEmail($email) {
         $this->email = $email;
-    }
-
-
-    public function getPlainPassword(): ?string
-    {
-        return $this->plainPassword;
-    }
-
-    public function setPlainPassword(string $plainPassword): self
-    {
-        $this->plainPassword = $plainPassword;
-
-        return $this;
     }
 
     public function getIsActive()
