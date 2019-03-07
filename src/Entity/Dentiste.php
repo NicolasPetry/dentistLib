@@ -66,6 +66,11 @@ class Dentiste
 
     private $coordonnee = array();
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $speciality;
+
     public function __construct()
     {
         $this->consultation = new ArrayCollection();
@@ -207,6 +212,18 @@ class Dentiste
     public function setLatitude(?float $latitude): self
     {
         $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getSpeciality(): ?string
+    {
+        return $this->speciality;
+    }
+
+    public function setSpeciality(?string $speciality): self
+    {
+        $this->speciality = $speciality;
 
         return $this;
     }
